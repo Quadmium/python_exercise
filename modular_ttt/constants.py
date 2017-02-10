@@ -1,0 +1,3 @@
+EMPTY_SQUARE = '-'
+X_TOKEN = 'X'
+O_TOKEN = 'O'
