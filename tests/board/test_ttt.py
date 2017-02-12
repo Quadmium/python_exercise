@@ -17,3 +17,25 @@ class TestTTT(unittest.TestCase):
         expected_empty_squares = [1, 2, 4, 5, 7, 8]
 
         self.assertEqual(expected_empty_squares, board.get_empty_square_positions())
+
+    def test_board_full(self):
+        squares = ['X', 'X', 'O', 'X', 'O', 'O', 'O', 'X', 'X']
+        board = Board()
+        board.set_all_squares(squares)
+
+        self.assertTrue(board.is_board_full())
+
+    def test_board_empty(self):
+        squares = ['-', '-', '-', '-', '-', '-', '-', '-', '-']
+        board = Board()
+        board.set_all_squares(squares)
+
+        self.assertTrue(board.is_board_empty())
+
+    def test_board_partially_full(self):
+        squares = ['X', '-', '-', 'O', '-', '-', '-', '-', '-']
+        board = Board()
+        board.set_all_squares(squares)
+
+        self.assertFalse(board.is_board_empty())
+        self.assertFalse(board.is_board_full())
