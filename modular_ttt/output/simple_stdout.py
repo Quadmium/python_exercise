@@ -3,8 +3,12 @@ class SimpleStdOut:
         pass
 
     def display_board(self, squares, round):
-        print("Round {}: ".format(round), end=" ")
-        print(squares, end=" ")
+        print("Round {}: ".format(round))
+        print("-------------------")
+        print("|  {0}  |  {1}  |  {2}  |".format(squares[0], squares[1], squares[2]))
+        print("|  {0}  |  {1}  |  {2}  |".format(squares[3], squares[4], squares[5]))
+        print("|  {0}  |  {1}  |  {2}  |".format(squares[6], squares[7], squares[8]))
+        print("-------------------")
         print("")
         print("")
 
@@ -22,18 +26,22 @@ class SimpleStdOut:
 
     def general_info(self):
         self.general_info_header()
-        print("Until further development the traditional TTT board: ")
-        print("__________________")
+        print("The TTT board will be shown as: ")
+        print("-------------------")
         print("|  1  |  2  |  3  |")
         print("|  4  |  5  |  6  |")
         print("|  7  |  8  |  9  |")
-        print("__________________")
-        print("")
-        print("will be displayed like shown below during the game: ")
-        print("")
-        print("['1', '2', '3', '4', '5', '6', '7', '8', '9']")
+        print("-------------------")
         print("")
         print("")
+
+    def display_choose_prompt(self, player):
+        print("Choose player {}".format(player))
+
+    def display_player_choices(self):
+        print("1. Random")
+        print("2. Interactive")
+        print("3. Minimax")
 
     def display_winner_announcement(self, winner_token):
         print("Player {} won. Congrats.".format(winner_token))

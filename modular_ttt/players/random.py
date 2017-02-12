@@ -10,4 +10,4 @@ class RandomPlayer:
         empty_squares = board.get_empty_square_positions()
         move_position = randint(0, len(empty_squares) - 1)
         board.set_square(empty_squares[move_position], self.token)
-        sleep(1.5)
+        sleep(0.5)

@@ -1,6 +1,5 @@
 from modular_ttt.constants import EMPTY_SQUARE, O_TOKEN, X_TOKEN
 
-
 class Board:
     def __init__(self):
         self.squares = [
@@ -33,3 +32,6 @@ class Board:
 
     def is_board_full(self):
         return len(self.get_empty_square_positions()) == 0
+
+    def is_board_empty(self):
+        return len(self.get_empty_square_positions()) == 9

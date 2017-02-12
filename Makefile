@@ -3,7 +3,7 @@ test:
 
 virtualenv:
 	# Only works with Python 3.x
-	python -m venv virtualenv
+	python3 -m venv virtualenv
 
 run-game:
 	virtualenv/bin/python runner.py

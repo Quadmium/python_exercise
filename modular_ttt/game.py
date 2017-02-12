@@ -1,7 +1,10 @@
 from modular_ttt.board.ttt import Board
 from modular_ttt.players.random import RandomPlayer
+from modular_ttt.players.interactive import InteractivePlayer
+from modular_ttt.players.minimax import MinimaxPlayer
 from modular_ttt.referee.ttt import Referee
 from modular_ttt.output.simple_stdout import SimpleStdOut
+from modular_ttt.input.move_handler import SimpleStdIn
 from modular_ttt.constants import O_TOKEN, X_TOKEN
 
 
@@ -9,10 +12,9 @@ class Game:
     def __init__(self):
         self.board = Board()
         self.out = SimpleStdOut()
-        self.playerO = RandomPlayer(O_TOKEN)
+        self.input = SimpleStdIn()
         # In random against random, player 'O' moves first
         self.current_turn_token = O_TOKEN
-        self.playerX = RandomPlayer(X_TOKEN)
         self.referee = Referee()
         self.round = None
 
@@ -36,6 +38,21 @@ class Game:
         try:
             self.out.display_greetings_and_game_info()
             self.out.current_game_header()
+
+            self.out.display_choose_prompt("O")
+            self.out.display_player_choices()
+            chosenPlayer = -1
+            while chosenPlayer == -1:
+                chosenPlayer = self.input.choose(3)
+            self.playerO = (RandomPlayer, InteractivePlayer, MinimaxPlayer)[chosenPlayer](O_TOKEN)
+
+            self.out.display_choose_prompt("X")
+            self.out.display_player_choices()
+            chosenPlayer = -1
+            while chosenPlayer == -1:
+                chosenPlayer = self.input.choose(3)
+            self.playerX = (RandomPlayer, InteractivePlayer, MinimaxPlayer)[chosenPlayer](X_TOKEN)
+
             self.out.announce_player(
                 type(self.playerO).__name__,
                 O_TOKEN

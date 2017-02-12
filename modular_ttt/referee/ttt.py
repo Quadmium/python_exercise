@@ -7,7 +7,8 @@ class Referee:
         self.squares = board.get_squares()
         self.token_to_check = token_to_check
         is_winner = self.is_winner_in_horizontals() or \
-            self.is_winner_in_verticals()
+            self.is_winner_in_verticals() or \
+            self.is_winner_in_diagonals()
         return is_winner
 
     def is_winner_in_horizontals(self):
@@ -31,4 +32,26 @@ class Referee:
                     self.squares[i + 6] == self.token_to_check:
                 is_winner = True
                 break
+        return is_winner
+
+    # Checks for diagonal wins using a mask
+    def is_winner_in_diagonals(self):
+        is_winner = True
+        left_diagonal_mask  = [1, 0, 0, 0, 1, 0, 0, 0, 1]
+        right_diagonal_mask = [0, 0, 1, 0, 1, 0, 1, 0, 0]
+        for i in range(0, len(left_diagonal_mask)):
+            if left_diagonal_mask[i] == 1 and \
+                self.squares[i] != self.token_to_check:
+                is_winner = False
+                break
+
+        # If is_winner stays true after left loop, then dont check right
+        if not is_winner:
+            is_winner = True
+            for i in range(0, len(right_diagonal_mask)):
+                if right_diagonal_mask[i] == 1 and \
+                    self.squares[i] != self.token_to_check:
+                    is_winner = False
+                    break
+
         return is_winner
