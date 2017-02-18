@@ -20,8 +20,8 @@ class TestTTT(unittest.TestCase):
         game = Game()
         game.run()
         sys.stdout = originalOut
-        # Check if game ended with congrats
-        self.assertTrue('Congrats' in out.getvalue())
+        # Check if game ended with congrats or tie
+        self.assertTrue('Congrats' in out.getvalue() or 'tie' in out.getvalue())
 
     @patch('modular_ttt.players.random.sleep', return_value=0)
     @patch('modular_ttt.players.interactive.sleep', return_value=0)
@@ -40,8 +40,8 @@ class TestTTT(unittest.TestCase):
         game = Game()
         game.run()
         sys.stdout = originalOut
-        # Check if game ended with congrats
-        self.assertTrue('Congrats' in out.getvalue())
+        # Check if game ended with congrats or tie
+        self.assertTrue('Congrats' in out.getvalue() or 'tie' in out.getvalue())
 
     @patch('modular_ttt.players.interactive.sleep', return_value=0)
     @patch('builtins.input')
