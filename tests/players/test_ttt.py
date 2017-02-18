@@ -31,7 +31,7 @@ class TestTTT(unittest.TestCase):
         # Mock the sleep function to make the gameplay instantly happen
         # Mock the side_effect such that input for choosing players will choose 0 then 1 (rand, interactive)
         mock_choose.side_effect = [0, 1]
-        # Mock the interactive player input to a random array from 1-9, so it will eventually find a correct location
+        # Mock the interactive player input to an array from 1-9, so it will eventually find a correct location
         mock_play.side_effect = itertools.cycle([1, 2, 3, 4, 5, 6, 7, 8, 9])
         # Take away stdout so game doesnt print to testing console
         originalOut = sys.stdout
