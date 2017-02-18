@@ -15,8 +15,7 @@ class MinimaxPlayer:
             board.set_square(0, self.token)
             return
 
-        tempBoard = Board()
-        tempBoard.set_all_squares(board.squares[:])
+        tempBoard = board.clone()
         self.board = tempBoard
         board.set_square(self.minimax(True, True), self.token)
         sleep(0.5)

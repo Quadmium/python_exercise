@@ -22,7 +22,7 @@ class SimpleStdIn:
         try:
             next_move = int(input("Please enter your next move (1-9): \n")) - 1
 
-            if next_move < 0 or next_move > len(board.squares) - 1:
+            if next_move < 0 or next_move > board.get_number_of_squares() - 1:
                 print("Square not within (1-9), please try again")
                 next_move = -1
 

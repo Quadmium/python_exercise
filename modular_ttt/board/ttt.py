@@ -17,6 +17,9 @@ class Board:
     def get_squares(self):
         return self.squares
 
+    def get_number_of_squares(self):
+        return len(self.squares)
+
     def set_square(self, position, token):
         self.squares[position] = token
 
@@ -35,3 +38,8 @@ class Board:
 
     def is_board_empty(self):
         return len(self.get_empty_square_positions()) == 9
+
+    def clone(self):
+        newBoard = Board()
+        newBoard.squares = self.squares[:]
+        return newBoard
