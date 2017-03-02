@@ -1,3 +1,2 @@
 nose2==0.6.5
-pkg-resources==0.0.0
 six==1.10.0
