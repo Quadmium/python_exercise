@@ -13,27 +13,33 @@ class SimpleStdOut:
         print("")
 
     def game_gretings(self):
-        print("Welcome to Modular Tic Tac Toe")
-        print("------------------")
+        return "{}\n{}\n".format(
+            "Welcome to Modular Tic Tac Toe",
+            "------------------"
+        )
 
     def display_greetings_and_game_info(self):
-        self.game_gretings()
-        self.general_info()
+        return "{}{}".format(
+            self.game_gretings(),
+            self.general_info()
+        )
 
     def general_info_header(self):
-        print("GENERAL INFO")
-        print("------------------")
+        return "{}\n{}".format(
+            "GENERAL INFO",
+            "------------------"
+        )
 
     def general_info(self):
-        self.general_info_header()
-        print("The TTT board will be shown as: ")
-        print("-------------------")
-        print("|  1  |  2  |  3  |")
-        print("|  4  |  5  |  6  |")
-        print("|  7  |  8  |  9  |")
-        print("-------------------")
-        print("")
-        print("")
+        return "{}\n{}\n{}\n{}\n{}\n{}\n{}\n\n".format(
+            self.general_info_header(),
+            "The TTT board will be shown as:",
+            "-------------------",
+            "|  1  |  2  |  3  |",
+            "|  4  |  5  |  6  |",
+            "|  7  |  8  |  9  |",
+            "-------------------"
+        )
 
     def display_choose_prompt(self, player):
         print("Choose player {}".format(player))

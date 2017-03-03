@@ -1,1 +1,20 @@
-virtualenv
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+
+# Virtualenv
+virtualenv/
+
+# Pyenv local python version
+.python-version
+
+# OS X related files
+.DS_Store
+*.swp
+*.swo
+
+# .gitignore
+.gitignore
+
+# SQLite files
+*.db

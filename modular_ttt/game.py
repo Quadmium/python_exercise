@@ -36,8 +36,8 @@ class Game:
 
     def run(self):
         try:
-            self.out.display_greetings_and_game_info()
-            self.out.current_game_header()
+            print(self.out.display_greetings_and_game_info())
+            print(self.out.current_game_header())
 
             self.out.display_choose_prompt("O")
             self.out.display_player_choices()
