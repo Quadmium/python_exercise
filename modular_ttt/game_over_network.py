@@ -55,6 +55,7 @@ def handle_move():
         if 'reset' in data_dict:
             cur.execute("UPDATE game_state SET current_turn_token='O', current_board_squares='---------'")
             conn.commit()
+            return 'Board reset'
 
         token = data_dict['token']
         square = int(data_dict['square'])
